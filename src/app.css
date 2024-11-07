@@ -1,3 +1,227 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+	font-family: 'century-gothic-pan-european-bold';
+	src: url('/fonts/CenturyGothicPaneuropeanBold.ttf');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'century-gothic-pan-european-regular';
+	src: url('/fonts/CenturyGothicPaneuropeanRegular.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'century-gothic-pan-european-bold-italic';
+	src: url('/fonts/CenturyGothicPaneuropeanBoldItalic.ttf');
+	font-weight: bold;
+	font-style: italic;
+}
+
+@layer base {
+	:root {
+		--background: 0 0% 100%; /* General background across app */
+
+		--foreground: 222.2 84% 4.9%; /* primary text/icon color */
+
+		--muted: 210 40% 96.1%; /* less prominent stuff like placeholders, disabled states, or subtle text */
+		--muted-foreground: 215.4 16.3% 46.9%; /* ^ but for text and icons */
+
+		--popover: 0 0% 100%;
+		--popover-foreground: 222.2 84% 4.9%;
+
+		--card: 0 0% 100%;
+		--card-foreground: 222.2 84% 4.9%;
+
+		--border: 214.3 31.8% 91.4%;
+		--input: 214.3 31.8% 91.4%; /* bg for inputs */
+
+		--primary: 222.2 47.4% 11.2%; /* primary actions like main buttons and links */
+		--primary-foreground: 210 40% 98%;
+
+		--secondary: 210 40% 96.1%;
+		--secondary-foreground: 222.2 47.4% 11.2%;
+
+		--accent: 210 40% 96.1%; /* highlighted text, borders, special ui elements */
+		--accent-foreground: 222.2 47.4% 11.2%;
+
+		--destructive: 0 72.2% 50.6%; /* potentially destructive or irreversible */
+		--destructive-foreground: 210 40% 98%;
+
+		--ring: 222.2 84% 4.9%; /* for active or focused elements */
+
+		--radius: 0.5rem;
+
+		--font-bold: 'century-gothic-pan-european-bold', sans-serif;
+		--font-regular: 'century-gothic-pan-european-regular', sans-serif;
+		--font-bold-italic: 'century-gothic-pan-european-bold-italic', sans-serif;
+	}
+
+	.dark-cosmos {
+		/* Base colors */
+		--background: 220 20% 4.9%; /* Smoky Black: #101720 */
+		--foreground: 210 40% 98%;
+
+		/* Surface colors */
+		--card: 222 15% 5.5%; /* Arsenic: #11181C */
+		--card-foreground: 210 40% 98%;
+		--popover: 222 15% 5.5%;
+		--popover-foreground: 210 40% 98%;
+
+		/* UI elements */
+		--primary: 267 75% 65%; /* Electric Purple */
+		--primary-foreground: 210 40% 98%;
+		--secondary: 220 13% 10%; /* Charleston Green: #212124 */
+		--secondary-foreground: 210 40% 98%;
+		--accent: 267 50% 30%; /* Deep Purple */
+		--accent-foreground: 210 40% 98%;
+
+		/* Functional colors */
+		--muted: 215 15% 15%; /* Oxford Blue variant */
+		--muted-foreground: 215 20% 65%;
+		--destructive: 0 75% 45%; /* Vibrant Red */
+		--destructive-foreground: 210 40% 98%;
+
+		/* Interactive elements */
+		--border: 215 15% 15%;
+		--input: 215 15% 15%;
+		--ring: 267 75% 65%;
+
+		/* Additional variables */
+		--hover: 267 75% 70%;
+		--active: 267 75% 60%;
+		--focus: 267 75% 65%;
+		--selection: 267 75% 25%;
+	}
+
+	/* Theme 2: Carbon Ember - Warm dark theme with amber accents */
+	.dark-ember {
+		/* Base colors */
+		--background: 20 15% 5%; /* Black Chocolate: #100D08 */
+		--foreground: 40 25% 98%;
+
+		/* Surface colors */
+		--card: 20 10% 7%; /* Coffee Bean: #1B1B1B */
+		--card-foreground: 40 25% 98%;
+		--popover: 20 10% 7%;
+		--popover-foreground: 40 25% 98%;
+
+		/* UI elements */
+		--primary: 35 90% 55%; /* Amber */
+		--primary-foreground: 20 15% 5%;
+		--secondary: 20 15% 12%; /* Gunmetal: #1D1F21 */
+		--secondary-foreground: 40 25% 98%;
+		--accent: 35 85% 45%; /* Deep Amber */
+		--accent-foreground: 40 25% 98%;
+
+		/* Functional colors */
+		--muted: 20 15% 15%;
+		--muted-foreground: 40 15% 65%;
+		--destructive: 0 75% 45%;
+		--destructive-foreground: 40 25% 98%;
+
+		/* Interactive elements */
+		--border: 20 15% 15%;
+		--input: 20 15% 15%;
+		--ring: 35 90% 55%;
+
+		/* Additional variables */
+		--hover: 35 90% 60%;
+		--active: 35 90% 50%;
+		--focus: 35 90% 55%;
+		--selection: 35 90% 25%;
+	}
+
+	/* Theme 3: Arctic Void - Cool-toned dark theme with ice blue accents. Changed to .dark */
+	/* to fill in for shadcn dark theme */
+	.dark {
+		/* Base colors */
+		--background: 215 25% 4%; /* Obsidian: #0B1215 */
+		--foreground: 210 40% 98%;
+
+		/* Surface colors */
+		--card: 217 20% 7%; /* Oxford Blue: #212A37 */
+		--card-foreground: 210 40% 98%;
+		--popover: 217 20% 7%;
+		--popover-foreground: 210 40% 98%;
+
+		/* UI elements */
+		--primary: 195 90% 65%; /* Ice Blue */
+		--primary-foreground: 215 25% 4%;
+		--secondary: 215 20% 12%; /* Eerie Black: #232023 */
+		--secondary-foreground: 210 40% 98%;
+		--accent: 195 85% 45%; /* Deep Ice Blue */
+		--accent-foreground: 210 40% 98%;
+
+		/* Functional colors */
+		--muted: 215 20% 15%;
+		--muted-foreground: 210 20% 65%;
+		--destructive: 0 75% 45%;
+		--destructive-foreground: 210 40% 98%;
+
+		/* Interactive elements */
+		--border: 215 20% 15%;
+		--input: 215 20% 15%;
+		--ring: 195 90% 65%;
+
+		/* Additional variables */
+		--hover: 195 90% 70%;
+		--active: 195 90% 60%;
+		--focus: 195 90% 65%;
+		--selection: 195 90% 25%;
+	}
+
+	.og-ore-dock {
+		--background: 0, 2%, 13%; /* blackish */
+		--foreground: 0, 0%, 100%; /* white */
+
+		--muted: 0, 0%, 87%; /* close to white */
+		--muted-foreground: 0, 0%, 0%; /* black */
+
+		--popover: 0, 0%, 100%; /* white */
+		--popover-foreground: 0, 0%, 0%; /* black */
+
+		--card: 0, 0%, 0%; /* black */
+		--card-foreground: 0, 0%, 100%; /* white */
+
+		--border: 0, 0%, 100%; /* white */
+		--input: 0, 0%, 10%; /* dark grey */
+
+		--primary: 75, 92%, 38%; /* green */
+		--primary-foreground: 0, 0%, 100%; /* white */
+
+		--secondary: 183, 40%, 72%; /* blue*/
+		--secondary-foreground: 0, 0%, 100%; /* white */
+
+		--accent: 184, 20%, 32%; /* teal ish blue */
+		--accent-foreground: 0, 0%, 100%; /* white */
+
+		--destructive: 341, 60%, 50%; /* pink */
+		--destructive-foreground: 0, 0%, 100%; /* white */
+
+		--ring: 0 0% 94.1%; /* light grey */
+	}
+}
+
+@layer base {
+	* {
+		@apply border-border;
+		font-family: var(--font-bold);
+	}
+	body {
+		@apply bg-background text-foreground;
+	}
+
+	.bold-italic {
+		font-family: var(--font-bold-italic);
+	}
+
+	.regular {
+		font-family: var(--font-regular);
+	}
+}
